@@ -18,12 +18,16 @@ Traditional blockchain interactions require users to manage private keys and sig
 
 ### Solution
 
-POPKORN introduces a groundbreaking approach using zero-knowledge proofs for user authentication and transaction authorization without exposing or requiring direct management of private keys. Key features include:
+POPKORN introduces an innovative approach using zero-knowledge proofs for user authentication and transaction authorization without exposing or requiring direct management of private keys. Key features include:
 
 1. Generation of proofs for each transaction
 2. Use of zkApp accounts with locked permissions set to proofOnly
 3. Leveraging native nonce of zkApp accounts to prevent proof reuse
 4. Transformation of passwords to public keys for enhanced security
+
+### Grant scope
+
+For this grant proposal we intent to make a MVP dApp that implements the POPKORN solution. It will be a multisig dApp that can receive tokens and send tokens after receiving X amount of proofs (instead of signatures). 
 
 ### Ecosystem Impact
 
@@ -54,28 +58,20 @@ POPKORN introduces a groundbreaking approach using zero-knowledge proofs for use
    - Each transaction requires a new proof, ensuring unique authentication for every action
 
 3. Integration with Existing Systems:
-   - Implement as a feature within existing wallets
-   - Provide API for dApps to request and verify POPKORN proofs
-   - Collaborate with ecosystem partners and wallet providers for seamless integration
+   - Implement as a feature within the Multisig MVP dApp.
 
 4. Security Measures:
    - Employ nonces and timestamps to ensure proof uniqueness
    - Store public key derived from user password, rather than password hash
    - Implement JWT-like mechanisms for enhanced security
 
-5. Transaction Handling:
-   - MINA transfers are possible through zkApp transactions
-   - Implement special handling for regular MINA transactions
-
 ### Vision
 
 Our vision is to make POPKORN the standard for blockchain authentication and transaction authorization. We aim to:
 
-1. Integrate POPKORN into major wallets in the Mina ecosystem
-2. Develop a comprehensive SDK for easy integration into dApps
-3. Expand POPKORN's capabilities to support various authentication scenarios and complex transaction types
-4. Collaborate with other blockchain projects to adapt POPKORN for cross-chain use
-
+1. Develop a comprehensive SDK for easy integration into dApps
+2. Expand POPKORN's capabilities to support various authentication scenarios and complex transaction types
+   
 ### Existing Work
 
 Our team previously built a POPKORN prototype at ZkHack Krakow, winning first prize from Mina. This prototype demonstrated the core concept of using zero-knowledge proofs for authentication.
@@ -92,9 +88,7 @@ We aim for a production-ready version within 3 months of funding.
 
 1. Complete core proof generation and verification logic
 2. Implement zkApp account with proofOnly permissions
-3. Develop integration prototypes with at least one major Mina wallet
-4. Release initial API documentation for developer feedback
-5. Implement basic transaction handling through zkApp transactions
+5. Implement transaction handling through zkApp transaction for Multisig dApp
 
 ### Project Timeline
 
@@ -106,9 +100,8 @@ We aim for a production-ready version within 3 months of funding.
 
 ### Budget Breakdown
 
-- Core POPKORN implementation: 20,000 MINA
-- Wallet integrations: 5,000 MINA
-- SDK development: 5,000 MINA
+- Core POPKORN functionality (proof generation, use and discard flow): 15,000 MINA
+- Multisig dApp: 15,000 MINA
 
 ### Wallet Address
 
@@ -120,11 +113,11 @@ We aim for a production-ready version within 3 months of funding.
 
 - arjanjohan - [Github](https://github.com/arjanjohan) - [Twitter](https://twitter.com/arjanjohan)
 - Kacper [Github](https://github.com/cleanerzkp) - [Twitter](https://twitter.com/0xcleaner)
-- Scott [Github](https://github.com/tuddman)
 
 ### Team Achievements
 
 - First prize at ZkHack Krakow for POPKORN prototype
+- Both Kacper and arjanjohan are EthGlobal finalists (EthGlobal Brussels)
 
 ### Proposer Github
 
@@ -140,7 +133,7 @@ Our team has demonstrated expertise in zero-knowledge proofs and blockchain deve
 
 1. Potential vulnerabilities in the proof generation or verification process
 2. Resistance from users or developers accustomed to traditional key management
-3. Compatibility issues with existing dApps and wallets
+3. Future compatibility issues with existing dApps and wallets
 
 ### Mitigations
 
