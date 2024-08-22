@@ -1,94 +1,88 @@
-# POPKORN Growth Grants Proposal
-
-## Title
-
-POPKORN: Proof Of Private Key Ownership Requiring Nothing - A Revolutionary Approach to Blockchain Authentication
+- # POPKORN: Zero-Knowledge MultiSig for Mina Protocol
 
 ## Project Background
 
-POPKORN is an innovative wallet solution built on Mina, leveraging Protokit, to revolutionize how users interact with blockchain applications. By utilizing zero-knowledge proofs for authentication and transaction authorization, POPKORN eliminates the need for complex seed phrase management and simplifies digital signatures.
-
-The platform addresses the critical issue of private key management, which has long been a significant barrier to mainstream blockchain adoption. POPKORN's approach not only enhances security but also dramatically improves user experience, making blockchain interactions as simple and intuitive as traditional web applications.
+POPKORN is an innovative MultiSig wallet solution built on Mina, leveraging O1js, to streamline how users interact with blockchain applications. By utilizing zero-knowledge proofs for authentication and transaction authorization, POPKORN creates a faster, more user-friendly MultiSig experience with fewer pop-ups, while maintaining robust security.
 
 ## Proposal Overview
 
 ### Problem
 
-Traditional blockchain interactions require users to manage private keys and sign transactions, creating a significant barrier to entry and increasing the risk of fund loss due to mismanagement. This complexity hinders widespread adoption and limits the potential of blockchain technology.
+Traditional MultiSig wallets often require complex coordination and multiple interactions, creating a barrier to adoption and efficient use. This complexity can deter users from leveraging the enhanced security benefits of MultiSig solutions.
 
 ### Solution
 
-POPKORN introduces an innovative approach using zero-knowledge proofs for user authentication and transaction authorization without exposing or requiring direct management of private keys. Key features include:
+POPKORN introduces a streamlined approach to MultiSig wallets on Mina:
 
-1. Generation of proofs for each transaction
-2. Use of zkApp accounts with locked permissions set to proofOnly
-3. Leveraging native nonce of zkApp accounts to prevent proof reuse
-4. Transformation of passwords to public keys for enhanced security
+1. Faster proof generation for each transaction by multiple users
+2. Efficient MultiSig dApp to aggregate and verify proofs
+3. Significantly reducing the number of pop-ups and user interactions
 
-### Grant scope
+### Grant Scope
 
-For this grant proposal we intent to make a MVP dApp that implements the POPKORN solution. It will be a multisig dApp that can receive tokens and send tokens after receiving X amount of proofs (instead of signatures). 
+We will develop an MVP MultiSig dApp implementing the POPKORN solution, capable of receiving and sending tokens after collecting the required number of proofs from authorized users.
 
 ### Ecosystem Impact
 
-1. User Adoption: By simplifying the user experience, POPKORN lowers the entry barrier for new users in the Mina ecosystem, potentially driving widespread adoption.
-2. Developer Adoption: Easier dApp integration encourages more developers to build on the Mina platform.
-3. Innovation Catalyst: POPKORN introduces new design patterns for secure, user-friendly blockchain interactions, spurring further innovation in the space.
+1. User Experience: Simplifying MultiSig interactions to encourage wider adoption of secure wallet solutions on Mina.
+2. Developer Tools: Providing an easier framework for integrating MultiSig functionality into Mina dApps.
+3. Ecosystem Growth: Attracting new users to Mina through user-friendly, secure wallet options.
 
 ### Audience
 
-1. Non-technical users seeking simpler blockchain interactions
-2. Developers aiming to integrate user-friendly authentication methods into their dApps
-3. Wallet providers interested in offering enhanced security and usability features
+1. Existing Mina users seeking more efficient MultiSig solutions
+2. New users looking for secure, easy-to-use wallet options on Mina
 
 ## Architecture & Design
 
-### Detailed Design/Architecture
+### Detailed Design
 
-1. Proof Generation and Usage:
-   - Utilize zkApp accounts with locked permissions set to proofOnly
-   - Generate a keypair within the circuit, discarding the private key after proof creation
-   - Proofs are generated and used immediately, without storage, enhancing security
-   - Use the native nonce of the zkApp account (with incrementNonce set to true) to prevent reuse
+//add the drawing
 
-2. Authentication Flow:
-   - User initiates a transaction
-   - POPKORN generates a one-time proof
-   - The proof is immediately used for authentication and discarded
-   - Each transaction requires a new proof, ensuring unique authentication for every action
+1. Wallet Connection and Multisig Setup:
+   - Users connect their standard Mina wallet to the POPKORN dApp
+   - Within the dApp, users can create a new multisig wallet
+   - Setup includes specifying signers, confirmation threshold, hierarchy and other parameters
 
-3. Integration with Existing Systems:
-   - Implement as a feature within the Multisig MVP dApp.
+2. Multisig Wallet Creation:
+   - Users define the number of signers and required confirmations
+   - Network fee (1 MINA) for new account setup is covered by the deployer
+   - 
+3. Transaction Proposal and Signing:
+   - Any signer can propose a transaction from the multisig wallet
+   - Other signers are notified and can review the transaction
+   - POPKORN generates zero-knowledge proofs for signer approval, replacing traditional signatures
 
-4. Security Measures:
-   - Employ nonces and timestamps to ensure proof uniqueness
-   - Store public key derived from user password, rather than password hash
-   - Implement JWT-like mechanisms for enhanced security
+4. Proof Aggregation and Execution:
+   - The multisig contract receives and verifies proofs from authorized signers
+   - Proofs are aggregated until the required threshold is met
+   - Once the threshold is reached, the transaction is automatically executed
+
+5. Wallet Management:
+   - Users can modify the number of signers and required confirmations after creation
+   - The dApp provides a user-friendly interface for managing the multisig wallet
 
 ### Vision
 
-Our vision is to make POPKORN the standard for blockchain authentication and transaction authorization. We aim to:
+To establish POPKORN as the go-to MultiSig solution on Mina, we aim to:
 
-1. Develop a comprehensive SDK for easy integration into dApps
-2. Expand POPKORN's capabilities to support various authentication scenarios and complex transaction types
-   
-### Existing Work
-
-Our team previously built a POPKORN prototype at ZkHack Krakow, winning first prize from Mina. This prototype demonstrated the core concept of using zero-knowledge proofs for authentication.
-- [Github link](https://github.com/private-key-black-box/frontend)
-
+1. Provide a seamless, user-friendly interface for creating and managing multisig wallets
+2. Minimize user interactions required for secure MultiSig transactions while maintaining robust security
+3. Support various authentication scenarios
 
 ### Production Timeline
 
-We aim for a production-ready version within 3 months of funding.
+We target a production-ready MultiSig dApp within 3 months of funding.
 
 ## Budget & Milestones
 
 ### Milestones
 
-1. Complete core proof generation and verification logic
-2. Implement zkApp account with proofOnly permissions
-5. Implement transaction handling through zkApp transaction for Multisig dApp
+1. Develop core proof generation and verification logic
+2. Implement MultiSig dApp smart contract
+3. Create user-friendly wallet interface
+4. Integrate proof aggregation and verification
+5. Conduct testing and security audits
 
 ### Project Timeline
 
@@ -100,12 +94,15 @@ We aim for a production-ready version within 3 months of funding.
 
 ### Budget Breakdown
 
-- Core POPKORN functionality (proof generation, use and discard flow): 15,000 MINA
-- Multisig dApp: 15,000 MINA
+- Core POPKORN functionality: 12,000 MINA
+- MultiSig dApp development: 12,000 MINA
+- User interface and wallet integration: 3,000 MINA
+- Testing, auditing, and documentation: 3,000 MINA
 
 ### Wallet Address
 
-[MINA Wallet address to be added]
+B62qrNc1QFe8Sr1ioGaanuDQ9aLvcpcNVpcwMDBtTmaXXH72cLtStBV
+//add yours
 
 ## Team Info
 
@@ -131,18 +128,17 @@ Our team has demonstrated expertise in zero-knowledge proofs and blockchain deve
 
 ### Risks
 
-1. Potential vulnerabilities in the proof generation or verification process
-2. Resistance from users or developers accustomed to traditional key management
-3. Future compatibility issues with existing dApps and wallets
+1. Potential vulnerabilities in proof handling
+2. User adoption challenges
+3. Compatibility with existing Mina infrastructure
 
 ### Mitigations
 
-1. Conduct thorough security audits and implement a bug bounty program
-2. Develop comprehensive educational materials and provide excellent developer support
-3. Work closely with the Mina community to ensure seamless integration and backwards compatibility where possible
-      
+1. Rigorous security audits and leveraging Mina's native security features
+2. Focus on intuitive UX design and user education
+3. Close collaboration with Mina community for seamless integration
+
 ## Additional Considerations
-- We will explore similarities and potential synergies with zkLogin from Sui
-- The design's invasiveness and impact on existing zkApps requires further ecosystem discussions
-- Supporting HD keys is currently out of scope, focusing instead on simplifying user experience through proof-based authentication
-- We plan to host workshops and hackathons to encourage developer adoption and gather feedback for continuous improvement
+
+- Explore synergies with other Mina ecosystem projects
+- Prioritize scalability for growing user base
