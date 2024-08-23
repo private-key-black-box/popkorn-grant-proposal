@@ -102,7 +102,7 @@ We target a production-ready MultiSig dApp within 3 months of funding.
 ### Wallet Address
 
 B62qrNc1QFe8Sr1ioGaanuDQ9aLvcpcNVpcwMDBtTmaXXH72cLtStBV
-//add yours
+B62qjfxgtyYsjpfKZGQ4AACvH96uVY5TAwjkW1DubWfwP2nbEqjrrSy
 
 ## Team Info
 
