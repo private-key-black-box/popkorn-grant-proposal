@@ -37,7 +37,7 @@ We will develop an MVP MultiSig dApp implementing the POPKORN solution, capable 
 
 ### Detailed Design
 
-//add the drawing
+![screenshot 1](diagram.png)
 
 1. Wallet Connection and Multisig Setup:
    - Users connect their standard Mina wallet to the POPKORN dApp
