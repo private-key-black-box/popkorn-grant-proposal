@@ -18,9 +18,13 @@ POPKORN introduces a streamlined approach to MultiSig wallets on Mina:
 2. Efficient MultiSig dApp to aggregate and verify proofs
 3. Significantly reducing the number of pop-ups and user interactions
 
+While the focus of this proposal is on developing a MultiSig MVP, our long-term vision is to extend this solution into a standalone framework. This framework will empower all Mina applications to replace traditional signing mechanisms with zero-knowledge proofs, enhancing both security and user experience across the ecosystem.
+
 ### Grant Scope
 
 We will develop an MVP MultiSig dApp implementing the POPKORN solution, capable of receiving and sending tokens after collecting the required number of proofs from authorized users.
+
+While the MVP focuses on the MultiSig functionality, it will lay the groundwork for a broader, more versatile solution that could eventually serve as a universal proof-based authentication mechanism for Mina applications. This future potential, although outside the scope of this grant, represents a significant step forward in how Mina dApps could manage transactions and user interactions.
 
 ### Ecosystem Impact
 
@@ -32,6 +36,7 @@ We will develop an MVP MultiSig dApp implementing the POPKORN solution, capable 
 
 1. Existing Mina users seeking more efficient MultiSig solutions
 2. New users looking for secure, easy-to-use wallet options on Mina
+3. Developers interested in new authentication mechanisms for Mina dApps.
 
 ## Architecture & Design
 
@@ -68,7 +73,7 @@ To establish POPKORN as the go-to MultiSig solution on Mina, we aim to:
 
 1. Provide a seamless, user-friendly interface for creating and managing multisig wallets
 2. Minimize user interactions required for secure MultiSig transactions while maintaining robust security
-3. Support various authentication scenarios
+3. Lay the foundation for a universal proof-based signing solution that can be integrated into any Mina dApp in the future.
 
 ### Production Timeline
 
@@ -142,3 +147,4 @@ Our team has demonstrated expertise in zero-knowledge proofs and blockchain deve
 
 - Explore synergies with other Mina ecosystem projects
 - Prioritize scalability for growing user base
+- Establish a roadmap for evolving the MultiSig solution into a universal proof-based authentication framework for all Mina dApps.
